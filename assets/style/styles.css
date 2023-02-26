@@ -7,6 +7,8 @@
 body{
     background: rgb(250,192,218);
     background: radial-gradient(circle, rgba(250,192,218,1) 0%, rgba(222,236,252,1) 100%);
+    width: 100vw;
+    height: 100vh;
 }
 
 header{
@@ -14,6 +16,7 @@ header{
     letter-spacing: 1.5px;
     text-shadow: 1px 1px rgba(255, 255, 255, 0.349);
     color: #3b3a3a;
+    min-height: 10vh;
 }
 
 .navbar-brand>img{
@@ -31,6 +34,7 @@ header{
 
 main {
     font-family: 'Open Sans', sans-serif;
+    min-height: 80vh;
 }
 
 /*INDEX*/
@@ -56,6 +60,121 @@ main {
     display: inline-flex;
 }
 
+.card{
+    margin: auto;
+    border-radius: 30px;
+    padding: 15px 10px;
+    background-color: #fff5f59f;
+    transition: 0.4 ease;
+}
+
+.card:hover{
+    transform: scale(1.05);
+    transition: 0.4s;
+}
+
+.card:hover .card-body .card-footer a {
+    background-color: #e0ee84;
+}
+
+.card>img{
+    width: 90%;
+    border-radius: 30px;
+    height: 200px;
+    margin: 10px auto;
+    object-fit: cover;
+    object-position: 0% 40%;
+    opacity: 0.8;
+}
+
+.card-body{
+    font-family: "Quicksand", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    text-align: center;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    text-shadow: 1px 1px rgba(255, 255, 255, 0.349);
+}
+.card-text{
+    text-align: center;
+}
+
+.card-footer{
+    justify-content: space-between;
+}
+
+.card-footer>p{
+    width: 60%;
+    align-self: center;
+    margin: 0;
+}
+
+.card-footer>a{
+    width: 30%;
+    align-self: center;
+    background-color: #d397db;
+    box-shadow: 2px 2px 5px 1px rgba(165, 165, 165, 0.534);
+    border-radius: 30px;
+    display: inline-flex !important;
+    align-self: end;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5 ease;
+}
+
+.card-btn:hover{
+    background-color: #89e5eb !important;
+    transition: 0.5s;
+} */
+
+/*FOOTER*/ 
+footer{
+    min-height: 10vh;
+    border: 2px solid rgb(255, 0, 0);
+
+}
+
+footer>div{
+    padding: 10px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px
+}
+
+.socials>a{
+    background-color: #5fadb4;
+    border-radius: 30px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    box-shadow: 2px 2px 5px 1px rgba(165, 165, 165, 0.534);
+    transition: 0.4 ease;
+}
+
+.socials>a:hover{
+    transition: 0.5s;
+    transform: translatey(-5px);
+}
+
+h4{
+    text-align: center;
+    text-shadow: 1px 1px rgba(255, 255, 255, 0.349);
+}
+
+footer>p{
+    text-align: center;
+}
 
 /*MEDIA QUERIES*/
 @media (min-width: 768px) { 
