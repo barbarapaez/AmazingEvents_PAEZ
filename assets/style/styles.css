@@ -25,6 +25,11 @@ header{
     transition: 0.5s ease;
 }
 
+
+.carousel-inner{
+    box-shadow: 2px 2px 5px 1px rgba(165, 165, 165, 0.534);
+}
+
 .carousel-item>img {
     height: 250px;
     object-fit: cover;
@@ -41,6 +46,7 @@ main {
 .main-bar{
     background-color: #fff5f59f;
     border-radius: 30px;
+    box-shadow: 2px 2px 5px 1px rgba(165, 165, 165, 0.534);
 }
 
 .main-bar>.checkbox{
@@ -66,6 +72,8 @@ main {
     padding: 15px 10px;
     background-color: #fff5f59f;
     transition: 0.4 ease;
+    box-shadow: 2px 2px 5px 1px rgba(165, 165, 165, 0.534);
+
 }
 
 .card:hover{
@@ -131,18 +139,79 @@ main {
 .card-btn:hover{
     background-color: #89e5eb !important;
     transition: 0.5s;
-} */
+} 
+
+/*CONTACT*/
+.contact>fieldset{
+    padding: 20px;
+    margin: 50px auto;
+    background-color: #fff5f59f;
+    border-radius: 30px;
+    align-self: center;
+    justify-self: center;
+    font-family: 'Quicksand', sans-serif;
+    box-shadow: 2px 2px 5px 1px rgba(165, 165, 165, 0.534);
+
+}
+
+.contact>fieldset>legend{
+    text-align: center;
+    font-weight: 700;
+    text-shadow: 1px 1px rgba(255, 255, 255, 0.349);
+    background-color: #fff5f5;
+    border-radius: 30px;
+    letter-spacing: 2px;
+    font-size: 30px;
+}
+
+.contact>fieldset>label{
+    font-size: 20px;
+}
+
+.contact>fieldset>input{
+    padding: 5px 10px;
+    border-radius: 30px;
+    border-color: transparent;
+    outline-color: #d397db;
+    margin-bottom: 20px;
+    text-align: start;
+}
+
+textarea{
+    padding: 15px 10px;
+    border-radius: 30px;
+    border-color: transparent;
+    outline-color: #d397db;
+    margin-bottom: 20px;
+    text-align: start;
+}
+
+.submit{
+    width: 95px;
+    font-size: 22px;
+    align-self: center;
+    margin: auto;
+    box-shadow: 2px 2px 5px 1px rgba(165, 165, 165, 0.534);
+    background-color: #2c888f;
+    color: #ffff;
+    transition: 0.5s all ease;
+}
+
+.submit:hover{
+    background-color: #f0ff8e;
+    color:#3b3a3a;
+    transition: 0.4s;
+}
 
 /*FOOTER*/ 
 footer{
     min-height: 10vh;
-    border: 2px solid rgb(255, 0, 0);
-
+    margin-top: 30px;
+    border-top: 1px solid #b45f9b6b;
 }
 
 footer>div{
     padding: 10px;
-    margin-top: 30px;
     display: flex;
     justify-content: center;
     gap: 20px
@@ -181,6 +250,10 @@ footer>p{
     .navbar-brand>img:hover {
         transform: scale(1.05);
         transition: 0.5s;
+    }
+
+    .contact>fieldset{
+        width: 80%;
     }
 }
 
