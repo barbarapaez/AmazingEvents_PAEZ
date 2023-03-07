@@ -1,4 +1,4 @@
-import data from "./amazing"
+import data from "./amazing.js"
 let sortedPastEvents = [];
 function pastEvents(events, date) {
     for(let event of events){
