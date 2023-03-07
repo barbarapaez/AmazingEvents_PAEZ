@@ -3,7 +3,7 @@ import data from "./amazing.js"
 let events = data.events;
 const element = document.getElementById("cardElement");
 const fragment = document.createDocumentFragment();
-sortedPastEvents.forEach((event) => {
+events.forEach((event) => {
     const div = document.createElement("div");
     div.innerHTML = `
     <div class="card h-100" style="width: 16rem;">
