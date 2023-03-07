@@ -15,7 +15,7 @@ sortedPastEvents.forEach((event) => {
     const div = document.createElement("div");
     div.innerHTML = `
     <div class="card h-100" style="width: 16rem;">
-    <img src="${event.image}" class="card-img-top" alt="Cinema">
+    <img src="${event.image}" class="card-img-top" alt="${event.name}">
     <div class="card-body">
         <h5 class="card-title">${event.name}</h5>
         <p class="card-text">${event.description}</p>
