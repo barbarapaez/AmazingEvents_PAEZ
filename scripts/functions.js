@@ -48,8 +48,8 @@ function createCheckboxes (arr, container){
     arrayCategoriesChecks.forEach((category) => {
         let div = document.createElement("div"); 
         div.innerHTML = `
-        <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="${category}" value="${category}">
+        <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="${category}" value="${category}">
         <label class="form-check-label" for="${category}">${category}</label>
         </div>
         `;
