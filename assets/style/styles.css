@@ -246,7 +246,7 @@ th{
 }
 .img-container>img{
     width: 90%;
-    height: 600px;
+    height: 200px;
     box-shadow: 2px 2px 5px 1px rgba(165, 165, 165, 0.534);
     border-radius: 30px;
     object-fit: cover;
@@ -333,14 +333,14 @@ footer>p{
         width: 80%;
     }
 
-    .detail{
+/*     .detail{
         display: flex;
-    }
+    } */
 
-    .description{
+/*     .description{
         width: 50%;
         margin-top: 0;
-    }
+    } */
 }
 
 @media (min-width: 992px) { 
