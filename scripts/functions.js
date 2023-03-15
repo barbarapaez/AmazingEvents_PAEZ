@@ -16,7 +16,7 @@ function upcomingEvents(events, date) {
     }
     return sortedUpcomingEvents
 }
-function Cards(arr, container) {
+function cards(arr, container) {
     let fragment = document.createDocumentFragment();
     arr.forEach((event) => {
         let div = document.createElement("div");
@@ -40,6 +40,22 @@ function Cards(arr, container) {
     });
     container.appendChild(fragment);
 }
-function 
+function createCheckboxes (arr, container){
+    let arrayCategories = arr.map(event => event.category);
+    let setCategories = new Set(arrayCategories);
+    let arrayCategoriesChecks = Array.from(setCategories);
+    let fragment = document.createDocumentFragment();
+    arrayCategoriesChecks.forEach((category) => {
+        let div = document.createElement("div"); 
+        div.innerHTML = `
+        <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="${category}" value="${category}">
+        <label class="form-check-label" for="${category}">${category}</label>
+        </div>
+        `;
+        fragment.appendChild(div);
+    });
+    container.appendChild(fragment);
+}
 
-export {pastEvents, upcomingEvents, Cards}
+export {pastEvents, upcomingEvents, cards, createCheckboxes}

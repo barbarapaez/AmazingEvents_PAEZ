@@ -1,6 +1,8 @@
 import data from "./amazing.js"
-import  {Cards} from "./functions.js";
+import  {cards, createCheckboxes} from "./functions.js";
 
 let element = document.getElementById("cardElement");
-Cards(data.events, element);
+cards(data.events, element);
+let checkboxElement = document.getElementById("checkboxCreation");
+createCheckboxes(data.events, checkboxElement);
 

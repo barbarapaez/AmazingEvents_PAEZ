@@ -1,5 +1,5 @@
 import data from "./amazing.js"
-import  {upcomingEvents, Cards} from "./functions.js";
+import  {upcomingEvents, cards} from "./functions.js";
 let element = document.getElementById("cardElement");
-Cards(upcomingEvents(data.events, data.currentDate), element);
+cards(upcomingEvents(data.events, data.currentDate), element);
 
