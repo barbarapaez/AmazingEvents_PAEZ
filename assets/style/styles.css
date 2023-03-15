@@ -153,6 +153,16 @@ main {
     transition: 0.5s;
 } 
 
+#noEvent {
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+    margin: 50px auto;
+    background-color: #b45f9b4d;
+    border-radius: 30px;
+    box-shadow: 2px 2px 5px 1px rgba(165, 165, 165, 0.534);
+}
+
 /*CONTACT*/
 .contact>fieldset{
     padding: 20px;

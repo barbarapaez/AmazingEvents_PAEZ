@@ -18,7 +18,7 @@ function upcomingEvents(events, date) {
 }
 function cards(arr, container) {
     if (arr.length == 0){
-        return container.innerHTML = `<h3>No such event found</h3>`
+        return container.innerHTML = `<h3 id="noEvent" >No such event found :(</h3>`
     }
     container.innerHTML = ""
     let fragment = document.createDocumentFragment();
