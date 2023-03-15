@@ -17,6 +17,10 @@ function upcomingEvents(events, date) {
     return sortedUpcomingEvents
 }
 function cards(arr, container) {
+    if (arr.length == 0){
+        return container.innerHTML = `<h3>No such event found</h3>`
+    }
+    container.innerHTML = ""
     let fragment = document.createDocumentFragment();
     arr.forEach((event) => {
         let div = document.createElement("div");
@@ -40,6 +44,11 @@ function cards(arr, container) {
     });
     container.appendChild(fragment);
 }
+/* function filterSearchAndCheckboxes(x, y){
+    let filterText = searchBarFilter(x, y);
+    let filterClick = filterCategories(filterText);
+    cards(filterClick);
+} */
 function createCheckboxes (arr, container){
     let arrayCategories = arr.map(event => event.category);
     let setCategories = new Set(arrayCategories);
@@ -57,5 +66,29 @@ function createCheckboxes (arr, container){
     });
     container.appendChild(fragment);
 }
+/* function returnCheckedCards (arr, container){
+    if(arr.length == 0){
+        container.innerHTML = `<h3>No such event found</h3>`
+        return
+    }
+    container.innerHTML = ""
+    cards(arr, container)
+}
+function searchBarFilter(arr, inputText) {
+    let filteredArr = arr.filter(event => event.name.toLowerCase().includes(inputText.toLowerCase()))
+    return filteredArr
+}
+function filterCategories(arr){
+    let checkboxes = document.querySelectorAll("input[type='checkbox']")
+    let arrCheck = Array.from(checkboxes)
+    let arrCheckedChecks = arrCheck.filter(check => check.checked);
+    let arrCheckedChecksValues = arrCheckedChecks.map(checkChecked => checkChecked.value)
+    let filteredArr = arr.filter(element => arrCheckedChecksValues.includes(element.category));
+    console.log(filteredArr);
+    if(arrCheckedChecks.length > 0 ){
+        return filteredArr
+    }
+    return arr
+} */
 
-export {pastEvents, upcomingEvents, cards, createCheckboxes}
+export {pastEvents, upcomingEvents, cards, createCheckboxes, /*filterSearchAndCheckboxes/* , returnCheckedCards, searchBarFilter, filterCategories */}
