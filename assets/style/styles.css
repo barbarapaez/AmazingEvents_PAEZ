@@ -66,8 +66,14 @@ main {
 }
 
 .search>form{
-    width: 90%;
+    width: 95%;
     display: inline-flex;
+    border-radius: 30px;
+}
+
+.form-control{
+    border-radius: 30px;
+    margin-bottom: 10px;
 }
 
 .card{
