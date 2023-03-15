@@ -40,5 +40,6 @@ function Cards(arr, container) {
     });
     container.appendChild(fragment);
 }
+function 
 
 export {pastEvents, upcomingEvents, Cards}
