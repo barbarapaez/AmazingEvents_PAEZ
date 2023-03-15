@@ -62,7 +62,7 @@ main {
 .main-bar>.search{
     margin-top: 15px;
     display: flex;
-    justify-content: center;
+    justify-content: center !important;
 }
 
 .search>form{
@@ -367,19 +367,19 @@ footer>p{
         transform: scale(1.05);
         transition: 0.4s;
     }
-    .main-bar {
+/*     .main-bar {
         display: flex;
-    }
+    } */
 
-    .main-bar>.search{
+/*     .main-bar>.search{
         margin-top: 0;
         width: 40%;
         display: inline-flex;
         justify-content: end;
-    }
+    } */
 }
 
-@media (min-width: 1200px) { 
+/* @media (min-width: 1200px) { 
     .main-bar>.checkbox{
         width: 49%;
     }
@@ -396,5 +396,5 @@ footer>p{
         width: 90%;
         justify-self: end; 
     }
-}
+} */
 
