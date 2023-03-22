@@ -1,5 +1,5 @@
 import data from "./amazing.js"
-import  {cards, createCheckboxes /*,filterSearchAndCheckboxes , returnCheckedCards, searchBarFilter, filterCategories */} from "./functions.js";
+import  {cards, createCheckboxes} from "./functions.js";
 
 const element = document.getElementById("cardElement");
 cards(data.events, element);

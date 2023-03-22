@@ -16,6 +16,7 @@ function upcomingEvents(events, date) {
     }
     return sortedUpcomingEvents
 }
+//FUNCIÓN PARA DIBUJAR CARTAS, RECIBE UN ARRAY DE EVENTOS Y LA UBICACIÓN EN EL HTML
 function cards(arr, container) {
     if (arr.length == 0){
         return container.innerHTML = `<h3 id="noEvent" >No such event found :(</h3>`
@@ -49,6 +50,12 @@ function cards(arr, container) {
     let filterClick = filterCategories(filterText);
     cards(filterClick);
 } */
+
+
+
+
+//TEMA FILTROS
+//FUNCIÓN PARA CREAR CHECKBOXES EN EL HTML, RECIBE UN ARRAY QUE CONTIENE ÚNICAMENTE LAS CATEGORÍAS A SER MOSTRADAS Y UNA UBICACIÓN EN EL HTML
 function createCheckboxes (arr, container){
     let arrayCategories = arr.map(event => event.category);
     let setCategories = new Set(arrayCategories);
@@ -66,7 +73,55 @@ function createCheckboxes (arr, container){
     });
     container.appendChild(fragment);
 }
+function checkboxFilter(arr){
+    let checkboxes = document.querySelectorAll("input[type='checkbox']")
+    //ARRAY DE CHECKBOXES
+    let checkboxesArr = Array.from(checkboxes);
+    //ARRAY CON LA CATEGORÍA ESPECÍFICA QUE FUE CHEQUEADA, FORMATO INPUT
+    let checkedCategories = checkboxesArr.filter(check => check.checked);
+    //ARRAY QUE CONTIENE SÓLO LA CATEGORIA
+    let checkedCategoryValue = checkedCategories.map(checkChecked => checkChecked.value)
+    //FILTRADO DEL ARRAY COMPLETO SEGÚN LA CATEGORÍA CHEQUEADA
+    let filteredArr = arr.filter(event => checkedCategoryValue.includes(event.category))
+    if(checkedCategories.length>0){
+        return filteredArr
+    } else {
+        return arr
+    }
+}
+//FUNCIÓN PARA LA SEARCH BAR
+function searchBarFilter(arr, text){
+    let filteredArr = arr.filter(event => event.name.toLowerCase().includes(text.toLowerCase()))
+    return filteredArr
+}
 
+
+
+//
+//FUNCIÓN PARA DETAILS
+//FUNCIÓN PARA CREAR UNA ÚNICA CARTA DE DETALLES EN DETAILS.HTML; RECIBE UN EVENTO EN PARTICULAR Y SU UBICACIÓN EN EL HTML
+function detailCard(event, container) {
+    container.innerHTML = `
+    <div class="img-container d-flex justify-content-center">
+                <img src="${event.image}" alt="S${event.description}">
+            </div>
+            <div class="description mx-auto">
+                <h5>${event.name}</h5>
+                <h6>Date: ${event.date}</h6>
+                <h6>Description: ${event.description}</h6>
+                <h6>Category: ${event.category}</h6>
+                <h6>Place: ${event.place}</h6>
+                <h6>Capacity: ${event.capacity}</h6>
+                <h6>Assistance or estimate: ${event.assistance}</h6>
+                <h6>Price: ${event.price}</h6>
+            </div>
+    `
+}
+
+
+
+
+//
 //AGREGADAS PARA LA TASK_4
 //FUNCIÓN QUE, DADOS DOS ARRAYS (ARR1=LISTA DE EVENTOS PASADOS; ARR2=LISTA DE EVENTOS COMPLETA) DEVUELVE STATS PARA LA PRIMERA TABLA COMO UN OBJETO
 function eventStatsByName(arr1, arr2) {
@@ -142,4 +197,4 @@ function drawTdExpanded(arr, container){
         }
 }
 
-export {pastEvents, upcomingEvents, cards, createCheckboxes, eventStatsByName, drawTd, eventsStatsByCategory, drawTdExpanded}
+export {pastEvents, upcomingEvents, cards, createCheckboxes, checkboxFilter, searchBarFilter, eventStatsByName, drawTd, eventsStatsByCategory, drawTdExpanded, detailCard}
