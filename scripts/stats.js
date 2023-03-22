@@ -1,7 +1,7 @@
 //CONSTANTE PARA SEÑALAR DÓNDE ESTOY TRABAJANDO, PRIMERA TABLA
-const tableOne = document.getElementById("firstTable")
-const tableTwo = document.getElementById("secondTable")
-const tableThree = document.getElementById("thirdTable")
+const rowOne = document.getElementById("firstRow")
+const rowTwo = document.getElementById("secondRow")
+const rowThree = document.getElementById("thirdRow")
 
 //TRAÍDA DE FUNCIONES NECESARIAS
 import  {pastEvents, upcomingEvents} from "./functions.js";
@@ -20,22 +20,14 @@ function getEvents(){
         currentDate = data.currentDate
         let sortedPastEvents = pastEvents(eventList, currentDate)
         let sortedUpcomingEvents = upcomingEvents(eventList, currentDate)
-        drawTd(eventStatistics(sortedPastEvents, eventList), tableOne)
-        let upcomingStats = eventsStats(sortedUpcomingEvents)
-        for (let key in upcomingStats) {
-            drawTd(upcomingStats[key], tableTwo)
-        }
-        let pastStats = eventsStats(sortedPastEvents)
-        for (let key in pastStats) {
-            drawTd(pastStats[key], tableThree)
-        }
-
-
+        drawTd(eventStatsByName(sortedPastEvents, eventList), rowOne)
+        drawTdExpanded(sortedUpcomingEvents, rowTwo)
+        drawTdExpanded(sortedPastEvents, rowThree)
 }).catch(err=>console.error(err))
 } getEvents()
 
 //FUNCIÓN QUE, DADOS DOS ARRAYS (ARR1=LISTA DE EVENTOS PASADOS; ARR2=LISTA DE EVENTOS COMPLETA) DEVUELVE STATS PARA LA PRIMERA TABLA COMO UN OBJETO
-function eventStatistics(arr1, arr2) {
+function eventStatsByName(arr1, arr2) {
     let highestAttendenceEvent = arr1.reduce((prev, current) => (prev.assistance/prev.capacity > current.assistance/current.capacity) ? prev : current).name
     let lowestAttendenceEvent = arr1.reduce((prev, current) => (prev.assistance/prev.capacity < current.assistance/current.capacity) ? prev : current).name
     let capacity = arr2.reduce((prev, current) => (prev.capacity > current.capacity) ? prev : current).name
@@ -49,8 +41,7 @@ function eventStatistics(arr1, arr2) {
 
 //FUNCIÓN PARA DIBUJAR LA TABLA
 function drawTd(data, container){
-/*     let fragment = document.createDocumentFragment()
- */    let fragment = document.createElement("tr")
+    let fragment = document.createElement("tr")
     for (let key in data) {
         let td = document.createElement("td")
         td.classList = ""
@@ -58,8 +49,7 @@ function drawTd(data, container){
         `${data[key]}` 
         fragment.appendChild(td)
     } 
-/*     container.appendChild(fragment)
- */    container.parentNode.insertBefore(fragment, container)
+    container.parentNode.insertBefore(fragment, container)
 }
 
 //FUNCIÓN QUE DA COMO RESULTADO UN ARRAY, DEVUELVE LAS CATEGORIAS DE TODOS LOS EVENTOS, SIN REPETIR
@@ -71,7 +61,7 @@ function getCategories (arr){
 }
 
 //FUNCIÓN QUE DADO UN ARRAY DE EVENTOS DEVUELVE UN OBJETO DONDE LAS CLAVES SON LAS CATEOGORÍAS Y LOS VALORES SON SU GANANCIA, CAPACIDAD ETC
-function eventsStats(events) {
+function eventsStatsByCategory(events) {
     let categories = getCategories(events)
     let stats = {}
     //creación de valores inciiales para attendance, revenue y capacity dentro de cada categoría dentro del objeto stats
@@ -102,4 +92,10 @@ function eventsStats(events) {
     return stats
 }
 
-//
+//FUNCIÓN PARA DIBUJAR FILAS SUCESIVAS USANDO LA FUNCIÓN DRAWTD, LA FUNCIÓN RECIBE UN ARRAY (PARA TRANSFORMARLO EN OBJETO) Y LA UBICACIÓN EN EL HTML
+function drawTdExpanded(arr, container){
+    let array = eventsStatsByCategory(arr)
+        for (let key in array) {
+            drawTd(array[key], container)
+        }
+}
