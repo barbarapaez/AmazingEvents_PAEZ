@@ -1,3 +1,4 @@
+//FUNCIÓN QUE DADO UN ARRAY Y UNA FECHA, DEVUELVE UN ARRAY CON LOS EVENTOS QUE TIENEN UNA FECHA ANTERIOR 
 function pastEvents(events, date) {
     let sortedPastEvents = [];
     for(let event of events){
@@ -7,6 +8,7 @@ function pastEvents(events, date) {
     }
     return sortedPastEvents
 }
+////FUNCIÓN QUE DADO UN ARRAY Y UNA FECHA, DEVUELVE UN ARRAY CON LOS EVENTOS QUE TIENEN UNA FECHA POSTERIOR 
 function upcomingEvents(events, date) {
     let sortedUpcomingEvents = [];
     for (let event of events){
@@ -45,13 +47,6 @@ function cards(arr, container) {
     });
     container.appendChild(fragment);
 }
-/* function filterSearchAndCheckboxes(x, y){
-    let filterText = searchBarFilter(x, y);
-    let filterClick = filterCategories(filterText);
-    cards(filterClick);
-} */
-
-
 
 
 //TEMA FILTROS
@@ -96,7 +91,6 @@ function searchBarFilter(arr, text){
 }
 
 
-
 //
 //FUNCIÓN PARA DETAILS
 //FUNCIÓN PARA CREAR UNA ÚNICA CARTA DE DETALLES EN DETAILS.HTML; RECIBE UN EVENTO EN PARTICULAR Y SU UBICACIÓN EN EL HTML
@@ -119,8 +113,6 @@ function detailCard(event, container) {
 }
 
 
-
-
 //
 //AGREGADAS PARA LA TASK_4
 //FUNCIÓN QUE, DADOS DOS ARRAYS (ARR1=LISTA DE EVENTOS PASADOS; ARR2=LISTA DE EVENTOS COMPLETA) DEVUELVE STATS PARA LA PRIMERA TABLA COMO UN OBJETO
@@ -135,7 +127,6 @@ function eventStatsByName(arr1, arr2) {
     }
     return result
 }
-
 //FUNCIÓN PARA DIBUJAR LA TABLA
 function drawTd(data, container){
     let fragment = document.createElement("tr")
@@ -148,7 +139,6 @@ function drawTd(data, container){
     } 
     container.parentNode.insertBefore(fragment, container)
 }
-
 //FUNCIÓN QUE DA COMO RESULTADO UN ARRAY, DEVUELVE LAS CATEGORIAS DE TODOS LOS EVENTOS, SIN REPETIR
 function getCategories (arr){
     let categories = [...new Set(arr.map(item => item.category).flat())]
@@ -156,7 +146,6 @@ function getCategories (arr){
  */    
     return categories
 }
-
 //FUNCIÓN QUE DADO UN ARRAY DE EVENTOS DEVUELVE UN OBJETO DONDE LAS CLAVES SON LAS CATEOGORÍAS Y LOS VALORES SON SU GANANCIA, CAPACIDAD ETC
 function eventsStatsByCategory(events) {
     let categories = getCategories(events)
@@ -188,7 +177,6 @@ function eventsStatsByCategory(events) {
     })
     return stats
 }
-
 //FUNCIÓN PARA DIBUJAR FILAS SUCESIVAS USANDO LA FUNCIÓN DRAWTD, LA FUNCIÓN RECIBE UN ARRAY (PARA TRANSFORMARLO EN OBJETO) Y LA UBICACIÓN EN EL HTML
 function drawTdExpanded(arr, container){
     let array = eventsStatsByCategory(arr)
